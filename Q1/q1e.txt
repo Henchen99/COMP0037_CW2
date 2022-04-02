@@ -1,1 +1,5 @@
+1. It is compuationally inefficient - Simulations are slow to converge requiring many hours and many epsiodes to get any significant results
 
+
+
+2. Results are always an estimation, cannot be exact. For there to be 0 error, number of iterations needs to be infinity
