@@ -1,4 +1,4 @@
-1. It is compuationally inefficient - Simulations are slow to converge requiring many hours and many epsiodes to get any significant results
+1. It is compuationally expensive - Simulations are slow to converge requiring many hours and many epsiodes to get any significant results
 
 
 
