@@ -1,0 +1,2 @@
+d. Describe the Sarsa and Q-learning algorithms and identify if they are on or off policy.
+[12 marks]

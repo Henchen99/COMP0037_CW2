@@ -1,0 +1,13 @@
+2. a. Describe what Temporal Difference (TD) methods are. What are their potential
+advantages over both Monte Carlo methods and policy and value iteration?
+[8 marks]
+Learns models of reward and environment. Builds from bootstrapping and Monte Carlo methods. Uses Monte Carlo scheme for non-stationary environments using a bootstrapped estimate of the return which doesn't require a model of a complete episode.
+
+Bootstrapping uses estimates of successor estimates of state and action values --> predicts future returns at a certain state to estimate the return.
+
+Advantages over both
+Monte Carlo and PI/VI have to have episodic tasks
+- episodes can be very long, or just not episodic 
+
+...over stationary environments
+- environments continuously change

@@ -1,0 +1,7 @@
+c. Define and explain the difference between on-policy and off-policy algorithms. What
+are the advantages and disadvantages of each?
+[6 marks]
+On policy
+- 
+Off policy
+- 
