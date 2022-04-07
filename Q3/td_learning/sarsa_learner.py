@@ -5,7 +5,7 @@ Created on 19 Mar 2022
 '''
 
 import random
-
+import numpy as np
 from .td_learner_base import TDLearnerBase
 
 class SarsaLearner(TDLearnerBase):
@@ -37,7 +37,8 @@ class SarsaLearner(TDLearnerBase):
             S_prime, R, done, info = self._environment.step(A)
     
             # Q3a: Replace with code to implement SARSA
-            A_prime = A
+            A_prime = self._q.policy().sample_action(S_prime[0], S_prime[1])
+            
             new_q = 0
             
             self._q.set_value(S[0], S[1], A, new_q)

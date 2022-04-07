@@ -2,6 +2,9 @@ c. Define and explain the difference between on-policy and off-policy algorithms
 are the advantages and disadvantages of each?
 [6 marks]
 On policy
-- 
+- Learning occurs on the target policy itself
+- 'learning by doing'
+- Continually estimate for and change some behaviour policy \pi
 Off policy
-- 
+- Learning comes from an alternate policy which is then used to learn the optimal policy
+- Kind of works the way that our brains do - similar to 'learning by observation'
