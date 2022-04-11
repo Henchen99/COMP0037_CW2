@@ -35,11 +35,16 @@ class SarsaLearner(TDLearnerBase):
         while done is False:
     
             S_prime, R, done, info = self._environment.step(A)
-    
+
+            if(done):
+                break
+
             # Q3a: Replace with code to implement SARSA
             A_prime = self._q.policy().sample_action(S_prime[0], S_prime[1])
             
-            new_q = 0
+            q = self._q.value(S[0],S[1],A)
+            q_prime = self._q.value(S_prime[0],S_prime[1],A_prime)
+            new_q = q + self.alpha()*(R + self.gamma()*q_prime - q)
             
             self._q.set_value(S[0], S[1], A, new_q)
    
