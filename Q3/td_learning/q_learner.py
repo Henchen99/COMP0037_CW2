@@ -45,7 +45,9 @@ class QLearner(TDLearnerBase):
             S_prime, R, done, info = self._environment.step(A)
 
             # Q3b : Replace with code to implement Q-learning
-            new_q = 0
+            q = self._q.value(S[0],S[1],A)
+            maxq = max(self._q.values_of_actions(S_prime[0],S_prime[1]))
+            new_q = q + self.alpha()*(R + self.gamma()*maxq - q)
             
             self._q.set_value(S[0], S[1], A, new_q)
            
