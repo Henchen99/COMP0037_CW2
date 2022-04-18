@@ -21,6 +21,9 @@ class SarsaLearner(TDLearnerBase):
 
     def _learn_online_from_episode(self):
         
+        # Storing variable for episode returns
+        R_episode = 0
+
         # Initialize a random state
         S = self._environment.pick_random_start()
         assert(S is not None)
@@ -51,5 +54,10 @@ class SarsaLearner(TDLearnerBase):
             # Store the state                
             S = S_prime
             A = A_prime
+            
+            # Store the return
+            R_episode = R_episode + R
+        
+        return R_episode
                
             
