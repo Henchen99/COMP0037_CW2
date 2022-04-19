@@ -34,13 +34,15 @@ class TDLearnerBase(object):
     def learn_online_policy(self):
 
         for episode_count in range(self._number_of_episodes):
-            self._learn_online_from_episode()
+            reward = self._learn_online_from_episode()
             
         if self._policy_drawer is not None:
             self._policy_drawer.update()
-                        
+                            
         if self._value_drawer is not None:
             self._value_drawer.update()
+        
+        return reward
 
     def set_alpha(self, alpha):
         self._alpha = alpha

@@ -43,9 +43,11 @@ if __name__ == '__main__':
     learner.set_value_function_drawer(value_function_drawer)
     
     # Run the learning algorithm.
-    for i in range(100000):
+    for i in range(10000):
         learner.set_epsilon(1/math.sqrt(i+1))
-        learner.learn_online_policy()
-        q_grid.show()
+        reward = learner.learn_online_policy()
+        # q_grid.show()
+        if(i%100==0):
+            print("episode: " + str(i))
     policy_drawer.wait_for_key_press()
         

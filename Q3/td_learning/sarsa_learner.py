@@ -6,6 +6,7 @@ Created on 19 Mar 2022
 
 import random
 import numpy as np
+
 from .td_learner_base import TDLearnerBase
 
 class SarsaLearner(TDLearnerBase):
@@ -34,13 +35,16 @@ class SarsaLearner(TDLearnerBase):
          
         # Main loop
         done = False
+        num_steps = 1
            
         while done is False:
-    
+
+            # Terminate if terminal state
+            if(A==9 or A==8):
+                break
+
             S_prime, R, done, info = self._environment.step(A)
 
-            if(done):
-                break
 
             # Q3a: Replace with code to implement SARSA
             A_prime = self._q.policy().sample_action(S_prime[0], S_prime[1])
@@ -54,10 +58,11 @@ class SarsaLearner(TDLearnerBase):
             # Store the state                
             S = S_prime
             A = A_prime
-            
+
             # Store the return
-            R_episode = R_episode + R
+            R_episode = R_episode + new_q
+            num_steps += 1
         
-        return R_episode
+        return int(R_episode/num_steps)
                
             

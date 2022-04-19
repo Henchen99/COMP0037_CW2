@@ -51,4 +51,4 @@ class GridDrawer(object):
         raise NotImplementedError()
     
     def wait_for_key_press(self):
-        self._win.getKey()
+        time.sleep(120)

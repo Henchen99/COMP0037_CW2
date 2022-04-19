@@ -28,6 +28,9 @@ class QLearner(TDLearnerBase):
 
     def _learn_online_from_episode(self):
         
+        # Storing variable for episode returns
+        R_episode = 0
+        
         # Initialize a random state
         S = self._environment.pick_random_start()
         assert(S is not None)
@@ -35,11 +38,16 @@ class QLearner(TDLearnerBase):
         
         # Main loop
         done = False
+        num_steps = 1
         
         while done is False:
                         
             # Sample the action
             A = self._q.policy().sample_action(S[0], S[1])
+
+            # Terminate if terminal state
+            if(A==9 or A==8):
+                break
            
             # Step the environment
             S_prime, R, done, info = self._environment.step(A)
@@ -53,6 +61,12 @@ class QLearner(TDLearnerBase):
            
             # Store the state                
             S = S_prime
+
+            # Store the return
+            R_episode = R_episode + new_q
+            num_steps += 1
+        
+        return int(R_episode/num_steps)
 
 
         
